@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Home",
+    "seemore": "About us"
+  },
+  "footer": {
+    "links": "Quick links",
+    "legal": "Legal"
+  },
+  "form": {
+    "activate_ticket": "Activate a ticket"
+  },
+  "body": {}
+}
