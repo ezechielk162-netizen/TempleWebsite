@@ -9,7 +9,7 @@
 
   <div>
  <p><strong>Le Tabernacle of Hallel</strong>  est une communauté chrétienne vivante et accueillante, appelée à élever le </p>
-<p>nom de Jésus-Christ à travers une adoration sincère, une prédication centrée sur la grâce, et un </p>
+<p>nom de Jésus-Christ à travers une adoration sincère, une prédication centrée sur la grâce, et un</p>
 <p>engagement actif dans la restauration des vies.</p>
  
   </div>
