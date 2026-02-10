@@ -121,7 +121,7 @@ onUnmounted(() => {
   .image-card {
   background: #111; /* ou white */
   padding: 5px;
-  border-radius: 20px; /* ✅ arrondi */
+  border-radius: 20px; /*  arrondi */
   display: flex;
   align-items: center;
   justify-content: center;
