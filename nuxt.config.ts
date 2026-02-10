@@ -28,16 +28,5 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_lang',
       redirectOn: 'root'
     }
-  },
-  fonts: {
-    families: [
-      {
-        name: "Poppins",
-        provider: "google",
-        weights: [300, 400, 500, 600, 700],
-        styles: ["normal"],
-        display: "swap"
-      }
-    ]
   }
 })
