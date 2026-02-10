@@ -20,4 +20,73 @@
     --light-orange: #FFE8D6;
     --light-gray: #F8F9FA;
     --text-dark: #212529;
+
+    --campus-blue: #2563eb;
+    --campus-blue-light: #60a5fa;
+
+    --campus-green: #10b981;
+    --campus-green-light: #34d399;
+
+    --primary-color: var(--campus-blue);
+    --primary-light: var(--campus-blue-light);
+
+    --dark-bg: #0f172a;
+    --dark-surface: #1e293b;
+    --light-bg: #f8fafc;
+    --light-surface: #ffffff;
+    --text-dark: #0f172a;
+    --text-light: #f8fafc;
+    --text-muted: #64748b;
+
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
+
+.pill-fade {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pill-fade.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.fix-icon {
+    position: relative;
+    top: -2px;
+    font-size: 15px;
+}
+
+.fix-icon-contact {
+    position: relative;
+    top: -4px;
+    font-size: 15px;
+}
+
+.fix-icon-whatsapp {
+    position: relative;
+    top: -3px;
+    font-size: 15px;
+}
+
+.outline-slide-team {
+    background: linear-gradient(135deg, var(--campus-blue), var(--campus-blue-light));
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    border: none;
+    font-weight: 600;
+    border-radius: 99px !important;
+    height: 100% !important;
+    padding: 12px 35px !important;
+    font-size: 1rem;
+    font-family: var(--font-display) !important;
+  }
+  
+  .outline-slide-team:hover {
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.7);
+  }
+  

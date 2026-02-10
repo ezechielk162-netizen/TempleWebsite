@@ -1,44 +1,51 @@
 <template>
   <div>
     <div v-if="isReady">
-    <header>
-      <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm">
-        <div class="container">
-          <!-- LOGO -->
-          <NuxtLink class="navbar-brand fs-3 fw-bold logo-blue" to="/">
-            {{ t("body.name") }}
-          </NuxtLink>
+      <header>
+        <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm">
+          <div class="container">
+            <!-- LOGO -->
+            <NuxtLink class="navbar-brand fs-3 fw-bold logo-blue" to="/">
+              {{ t("body.name") }}
+            </NuxtLink>
 
-          <!-- TOGGLER MOBILE -->
-          <button class="navbar-toggler" type="button" @click="toggleMenu">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <!-- TOGGLER MOBILE -->
+            <button class="navbar-toggler" type="button" @click="toggleMenu">
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-          <!-- MENU -->
-          <div :class="['collapse navbar-collapse', { show: isOpen }]" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4 d-flex">
-              <li class="nav-item pt-2" v-for="item in menuItems" :key="item.to">
-                <NuxtLink
-                  :to="item.to"
-                  class="nav-link nav-custom"
-                  :class="{ 'active-link': isActive(item) }"
-                  @click="closeMenu"
-                >
-                  {{ t(item.label) }}
-                  <span class="underline"></span>
-                  <!-- ligne animée -->
-                </NuxtLink>
-              </li>
-            </ul>
+            <!-- MENU -->
+            <div :class="['collapse navbar-collapse', { show: isOpen }]" id="navbarNav">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4 d-flex">
+                <li class="nav-item pt-2" v-for="item in menuItems" :key="item.to">
+                  <NuxtLink
+                    :to="item.to"
+                    class="nav-link nav-custom"
+                    :class="{ 'active-link': isActive(item) }"
+                    @click="closeMenu"
+                  >
+                    {{ t(item.label) }}
+                    <span class="underline"></span>
+                    <!-- ligne animée -->
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
 
-      <ChangerLanguage />
+      <div v-if="isReady">
+        <ChangerLanguage />
+      </div>
+
+      <FooterPage />
     </div>
-
-    <FooterPage />
+   <!-- <div v-else class="h-100">
+      <template>
+        <a-skeleton active />
+      </template>
+    </div> -->
   </div>
 </template>
 
@@ -56,6 +63,7 @@ const isReady = computed(() => componentsReady.value);
 
 onMounted(() => {
   window.addEventListener("resize", handleResize);
+
   componentsReady.value = true;
 });
 

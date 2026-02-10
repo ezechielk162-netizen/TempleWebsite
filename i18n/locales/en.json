@@ -10,5 +10,9 @@
   "form": {
     "activate_ticket": "Activate a ticket"
   },
-  "body": {}
+  "body": {
+    "presentation": {
+      "who": "Who are we ?"
+    }
+  }
 }

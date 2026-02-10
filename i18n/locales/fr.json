@@ -10,6 +10,8 @@
     "activate_ticket": "Activer un ticket"
   },
   "body": {
-    
+    "presentation": {
+      "who": "Qui sommes-nous ?"
+    }
   }
 }
