@@ -11,7 +11,7 @@
         <!-- Logo -->
         <NuxtLink class="logo-section d-flex align-items-center gap-2" :to="'/'">
           <div class="logo-icon">
-          <img src="/assets/img/logo.png" style="width: 70px"/>
+            <img src="/assets/img/logo.png" style="width: 70px" />
           </div>
           <strong class="title-size">Tabernacle of Hallel</strong>
         </NuxtLink>
@@ -25,7 +25,7 @@
         <div
           :class="[
             isOpen
-              ? 'collapse navbar-collapse pt-3'
+              ? 'collapse navbar-collapse animated-collapse pt-3'
               : 'collapse navbar-collapse justify-content-center',
             { show: isOpen },
           ]"
@@ -47,13 +47,15 @@
                       ? 'nav-link dark-color gap-3 fs-5 d-flex align-items-center gap-1'
                       : 'nav-link dark-color d-flex align-items-center gap-1'
                   "
+                  @click="closeMenu"
                 >
                   <component
                     v-if="item.icon && isOpen"
                     :is="item.icon"
-                    class="fix-icon"
+                    class="fix-icon fs-5"
                   />
                   {{ t(item.name) }}
+                  
                 </NuxtLink>
               </template>
 
@@ -121,7 +123,7 @@
             :style="isOpen && btn.showOnMobile ? { height: '50px' } : {}"
             @click="route.push(btn.redirectButton)"
           >
-            <component :is="btn.icon" class="fix-icon-whatsapp" />
+            <component :is="btn.icon" class="fix-icon-whatsapp fs-5" />
             {{ btn.label }}
           </a-button>
         </div>
@@ -209,6 +211,21 @@ onUnmounted(() => {
   transition: all 0.2s ease;
 }
 
+.animated-collapse {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.35s ease;
+}
+
+/* Ouvert */
+.animated-collapse.show {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Icônes */
 .dropdown-card i {
   font-size: 18px;
@@ -278,11 +295,27 @@ body.dark-mode .nav-link {
   transition: width 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .title-size
-  {
-    font-size: 17px !important;
+@media (min-width: 991px) {
+  .animated-collapse {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    display: flex !important;
+    justify-content: flex-end;
   }
 }
 
+@media (max-width: 768px) {
+  .title-size {
+    font-size: 17px !important;
+  }
+
+  
+}
+
+@media (max-width: 1024px) {
+  .title-size {
+    font-size: 0px;
+  }
+}
 </style>

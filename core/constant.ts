@@ -136,7 +136,7 @@ export const actionButtons = [
     type: 'primary',
     showOnMobile: true,
     redirectButton: "#test",
-    isTablette: false
+    isTablette: true
 
   }
 ]

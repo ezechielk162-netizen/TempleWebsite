@@ -19,7 +19,9 @@ export const useFunctions = () => {
     }
 
     function closeMenu() {
-        isOpen.value = false
+        setTimeout(() =>{
+            isOpen.value = false
+        }, 500)
     }
 
     function handleResize() {
