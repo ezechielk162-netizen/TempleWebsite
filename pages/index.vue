@@ -101,6 +101,7 @@
 
   <PersoDiv>
     <MissionSection
+    :addMargin="true"
       :title="'Que vous soyez appelé à prier, à servir, ou à soutenir, il y a une place pour vous au Tabernacle of Hallel.'"
       subtitle="Bienvenue dans cette aventure de foi, d’espérance et de restauration."
       :addButton="true"
