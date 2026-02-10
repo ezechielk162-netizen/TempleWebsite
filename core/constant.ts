@@ -1,7 +1,12 @@
-export const menuItems = [
+
+import {
+  HomeOutlined, GlobalOutlined, CalendarOutlined, InfoCircleOutlined, MessageOutlined, GiftOutlined
+} from "@ant-design/icons-vue";
+
+ export const menuItem = [
   { label: 'nav.home', to: '/' },
   { label: 'nav.seemore', to: '/propos' },
-]
+] 
 
 export const randomImage = {
   URL: "https://picsum.photos/1920/900?random=1"
@@ -88,5 +93,50 @@ export const cardsDiscuss = [
   {
     image: '/assets/img/church-discuss-2.jpg',
     alt: 'Culte PNG'
+  }
+]
+
+export const menuItems = [
+  {
+    name: 'nav.home',
+    to: "/",
+    icon: HomeOutlined,
+    dropdown: null,
+  },
+  {
+    name: "nav.follow",
+    to: "#",
+    icon: GlobalOutlined,
+    dropdown: null,
+  },
+  {
+    name: "nav.ask",
+    to: "#",
+    icon: MessageOutlined,
+    dropdown: null,
+  },
+  {
+    name: "nav.give",
+    to: "#",
+    icon: GiftOutlined,
+    dropdown: null,
+  },
+  {
+    name: "nav.seemore",
+    to: "#",
+    icon: InfoCircleOutlined,
+    dropdown: null,
+  },
+];
+
+export const actionButtons = [
+  {
+    label: 'Prendre un rendez-vous',
+    icon: CalendarOutlined,
+    type: 'primary',
+    showOnMobile: true,
+    redirectButton: "#test",
+    isTablette: false
+
   }
 ]

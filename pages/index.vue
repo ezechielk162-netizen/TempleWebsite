@@ -89,11 +89,23 @@
     <SongsAudio />
   </PersoDiv>
 
+  <PersoDiv class="pad-section">
+    <MissionButton :buttonTitle="'Découvrez le ministère en images'" />
+  </PersoDiv>
 
-    <CarousselSlides />
+  <CarousselSlides />
 
-    <PersoDiv>
-    <SongsAudio />
+  <PersoDiv class="pad-section">
+    <MissionButton :buttonTitle="'Rejoignez la vision'" />
+  </PersoDiv>
+
+  <PersoDiv>
+    <MissionSection
+    :addMargin="true"
+      :title="'Que vous soyez appelé à prier, à servir, ou à soutenir, il y a une place pour vous au Tabernacle of Hallel.'"
+      subtitle="Bienvenue dans cette aventure de foi, d’espérance et de restauration."
+      :addButton="true"
+    />
   </PersoDiv>
 </template>
 
@@ -101,17 +113,21 @@
 import { randomImage, goals, coords } from "~/core/constant";
 
 const { t } = useI18n();
+
+definePageMeta({
+  layout: "perso"
+})
+
 </script>
 
 <style scoped>
-.pad-section{
-    padding-top: 30px
-  }
+.pad-section {
+  padding-top: 30px;
+}
 
 @media (max-width: 768px) {
-  .pad-section{
-    padding-top: 10px
+  .pad-section {
+    padding-top: 10px;
   }
-
-  }
+}
 </style>

@@ -17,7 +17,7 @@
             <!-- MENU -->
             <div :class="['collapse navbar-collapse', { show: isOpen }]" id="navbarNav">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4 d-flex">
-                <li class="nav-item pt-2" v-for="item in menuItems" :key="item.to">
+                <li class="nav-item pt-2" v-for="item in menuItem" :key="item.to">
                   <NuxtLink
                     :to="item.to"
                     class="nav-link nav-custom"
@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
-import { menuItems } from "~/core/constant";
+import { menuItem } from "~/core/constant";
 
 const { isOpen, handleResize, toggleMenu, closeMenu } = useFunctions();
 const route = useRoute();

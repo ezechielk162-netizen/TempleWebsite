@@ -1,7 +1,10 @@
 {
   "nav": {
     "home": "Home",
-    "seemore": "About us"
+    "follow": "Follow Jesus",
+    "ask": "Prayer Request",
+    "give": "Give",
+    "seemore": "About"
   },
   "footer": {
     "links": "Quick links",
