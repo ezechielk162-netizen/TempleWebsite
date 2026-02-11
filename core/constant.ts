@@ -135,7 +135,7 @@ export const actionButtons = [
     icon: CalendarOutlined,
     type: 'primary',
     showOnMobile: true,
-    redirectButton: "#test",
+    redirectButton: "/prise-rendez-vous",
     isTablette: true
 
   }
