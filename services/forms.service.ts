@@ -6,6 +6,18 @@ export default class FormService {
         email: "",
     })
 
+    static form = reactive({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        date: null,
+        hour: "",
+        minute: "",
+        ampm: "AM",
+      });
+
     static clearForm(form: any) {
         Object.keys(form).forEach((key) => {
             if (

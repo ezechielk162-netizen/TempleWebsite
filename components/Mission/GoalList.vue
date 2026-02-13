@@ -35,15 +35,15 @@
 
     <div v-else>
       <p class="text-section" v-for="(item, index) in props.coords" :key="index">
-        <DoubleRightOutlined class="fix-icon mx-2" />{{
-          item.textStrong
-        }}
+        <DoubleRightOutlined class="fix-icon mx-2" />{{ item.textStrong }}
         <strong>{{ item.endofText }}</strong>
       </p>
     </div>
 
     <perso-div v-if="!isPresentation" :padding-value="4" class="text-center pt-3">
-        <a-button size="large" class="outline-slide-team"><CalendarOutlined class="fix-icon-contact"/> Contactez-nous</a-button>
+      <a-button size="large" class="outline-slide-team"
+        ><CalendarOutlined class="fix-icon-contact" /> Contactez-nous</a-button
+      >
     </perso-div>
   </div>
 </template>
@@ -107,21 +107,21 @@ onBeforeUnmount(() => {
 }
 
 .outline-slide-team {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    color: white;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    border: none;
-    font-weight: 600;
-    border-radius: 99px !important;
-    height: 100% !important;
-    padding: 12px 35px !important;
-    font-size: 1rem;
-    font-family: var(--font-display) !important;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  border: none;
+  font-weight: 600;
+  border-radius: 99px !important;
+  height: 100% !important;
+  padding: 12px 35px !important;
+  font-size: 1rem;
+  font-family: var(--font-display) !important;
 }
 
 .outline-slide-team:hover {
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.7);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.7);
 }
 
 @media (max-width: 768px) {
@@ -137,7 +137,5 @@ onBeforeUnmount(() => {
   .desktop {
     display: none;
   }
-
-
 }
 </style>

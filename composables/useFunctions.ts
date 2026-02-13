@@ -3,7 +3,7 @@ import FormService from "~/services/forms.service";
 
 const isOpen = ref(false)
 export const useFunctions = () => {
-    const form = FormService.activeForm;
+    const form = FormService.form;
     const resetForm = FormService.clearForm;
 
     const languageStore = useLanguageStore();
@@ -32,6 +32,7 @@ export const useFunctions = () => {
 
 
     return {
+        form,
         isOpen,
         toggleMenu,
         closeMenu,
