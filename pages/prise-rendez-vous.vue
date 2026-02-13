@@ -18,7 +18,7 @@
   </PersoDiv>
 
   <PersoDiv>
-<FormPrototype :forms="form" :addOneInput="true"/>
+<FormPrototype :forms="form" :addOneInput="true" :firstLabel="'Nom complet'"/>
   </PersoDiv>
 </template>
 
