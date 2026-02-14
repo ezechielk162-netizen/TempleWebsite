@@ -4,6 +4,7 @@
       size="large"
       style="width: 100%"
       :value="dayjsValue"
+      :disabled-date="disabledDate"
       @update:value="onInput"
     />
   </a-form-item>
@@ -12,6 +13,7 @@
 <script setup lang="ts">
 import dayjs, { Dayjs } from "dayjs";
 import type { Rule } from "ant-design-vue/es/form";
+import { disabledDate } from "~/utils/phone";
 
 const props = defineProps({
   label: { type: String, required: true },

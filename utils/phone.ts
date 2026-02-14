@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 // Formatage automatique
 export function formatCanadianPhone(value: string): string {
     if (!value) return "+1 ";
@@ -67,3 +69,6 @@ export const formatDate = (date: string | null) => {
     return date ? `${day}-${month}-${year}` : null;
 }
 
+export const disabledDate = (current: any) => {
+    return current && current < dayjs().startOf("day");
+  };

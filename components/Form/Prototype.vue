@@ -2,7 +2,7 @@
   <div class="container py-5">
     <a-form
       layout="vertical"
-      @finish="onSubmit(props.forms)"
+      @finish="onSubmit(props.forms as rdvForm)"
       class="bg-white p-4 rounded shadow-sm"
       :model="props.forms"
     >
@@ -204,7 +204,7 @@ const props = defineProps({
 
 const captchaVerified = ref(false);
 
-const onCaptchaVerified = (token) => {
+const onCaptchaVerified = (token: string) => {
   captchaVerified.value = true;
   console.log("Captcha OK:", token);
 };

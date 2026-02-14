@@ -46,9 +46,9 @@
           </div>
         </div>
 
-        <div class="footer-bottom">
+       <!-- <div class="footer-bottom">
           <p>© {{ t('body.sign') }}</p>
-        </div>
+        </div> -->
       </div>
     </footer>
   </div>

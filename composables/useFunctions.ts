@@ -42,12 +42,16 @@ export const useFunctions = () => {
             minute: form.minute,
             ampm: form.ampm,
         }
+        sendEmail(finalForm);
         console.log("Form envoyé:", form.date, finalForm);
     };
 
     function disableButton(form: rdvForm, requiredFields: string[]): boolean {
         // Vérifie si tous les champs requis sont remplis
-        const requiredNotFilled = requiredFields.some((field) => !form[field] || form[field] === "");
+        const requiredNotFilled = requiredFields.some((field) => {
+            const value = form[field];
+            return value === null || value === undefined || value === "";
+          });
 
         const isValidNumber = form.phone ? !isValidCanadianPhone(form.phone) : false;
         const isValidAdresse = form.email ? !isValidEmail(form.email) : false;
@@ -55,6 +59,21 @@ export const useFunctions = () => {
 
         return requiredNotFilled || isValidNumber || isValidAdresse;
     }
+
+    async function sendEmail(form :Object){
+        const { data } = await useFetch("/api/send-email", {
+          method: "POST",
+          body: form,
+        });
+
+        console.log("data", data.value);
+      
+        if (data.value?.success) {
+          alert("Message envoyé !");
+        } else {
+          alert("Erreur lors de l'envoi");
+        }
+      };
 
 
     return {
@@ -64,6 +83,7 @@ export const useFunctions = () => {
         toggleMenu,
         closeMenu,
         handleResize,
-        disableButton
+        disableButton,
+        sendEmail
     }
 }
