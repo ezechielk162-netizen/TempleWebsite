@@ -79,11 +79,13 @@ export const useFunctions = () => {
             });
 
             if (error.value) {
-                alert("Erreur lors de l'envoi");
+                message.error("Erreur lors de l'envoi !");
+                resetForm(form);
                 return;
             }
 
             if (data.value?.success) {
+                resetForm(form);
                 message.success("Succès ! Votre opération a été traitée !");
             } else {
                 alert("Erreur lors de l'envoi");

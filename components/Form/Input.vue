@@ -1,9 +1,12 @@
 <template>
-  <a-form-item  :name="name" :rules="rules" v-if="isNormalText">
-    <template #label>
-    {{ label }}<span class="text-danger">*</span>
-  </template>
-    <a-input size="large" :value="modelValue" @update:value="onInput" :placeholder="placeholder" allow-clear/>
+  <a-form-item :label="label" :name="name" :rules="rules" v-if="isNormalText">
+    <a-input
+      size="large"
+      :value="modelValue"
+      @update:value="onInput"
+      :placeholder="placeholder"
+      allow-clear
+    />
   </a-form-item>
 
   <a-form-item :label="label" :name="name" :rules="validationRules" v-if="isNumberInput">
@@ -16,22 +19,25 @@
       allow-clear
     />
   </a-form-item>
-  
 </template>
 
 <script setup lang="ts">
-import { formatCanadianPhone, isValidCanadianPhone, allowOnlyNumbers } from "@/utils/phone";
+import {
+  formatCanadianPhone,
+  isValidCanadianPhone,
+  allowOnlyNumbers,
+} from "@/utils/phone";
 import type { Rule } from "ant-design-vue/es/form";
 
 const props = defineProps({
   label: { type: String, required: true },
   name: { type: String, required: true },
   modelValue: { type: String, required: true },
-  placeholder: {type: String, required: false, default: ""},
+  placeholder: { type: String, required: false, default: "" },
   rules: {
-  type: Array as PropType<Rule[]>,
-  default: () => [{ required: true, message: "Champ requis" }]
-},
+    type: Array as PropType<Rule[]>,
+    default: () => [{ required: true, message: "Champ requis" }],
+  },
   isNormalText: { type: Boolean, default: true },
   isNumberInput: { type: Boolean, default: false },
 });
