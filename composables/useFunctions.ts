@@ -1,8 +1,11 @@
 import type { rdvForm } from "~/interfaces/RdvInterface";
 import FormService from "~/services/forms.service";
+import { encryptData } from "~/utils/crypto.client";
 
 
 const isOpen = ref(false)
+const launchRequest = ref(false);
+
 export const useFunctions = () => {
     const form = FormService.form;
     const resetForm = FormService.clearForm;
@@ -10,6 +13,7 @@ export const useFunctions = () => {
     const languageStore = useLanguageStore();
     const choiceLanguage = computed(() => languageStore.language);
 
+    const config = useRuntimeConfig();
 
     function changeLanguage(lang: any) {
         languageStore.setLanguage(lang);
@@ -51,7 +55,7 @@ export const useFunctions = () => {
         const requiredNotFilled = requiredFields.some((field) => {
             const value = form[field];
             return value === null || value === undefined || value === "";
-          });
+        });
 
         const isValidNumber = form.phone ? !isValidCanadianPhone(form.phone) : false;
         const isValidAdresse = form.email ? !isValidEmail(form.email) : false;
@@ -60,25 +64,45 @@ export const useFunctions = () => {
         return requiredNotFilled || isValidNumber || isValidAdresse;
     }
 
-    async function sendEmail(form :Object){
-        const { data } = await useFetch("/api/send-email", {
-          method: "POST",
-          body: form,
-        });
+    async function sendEmail(form: Object) {
+        const secret = config.public.cryptoSecrect;
+        launchRequest.value = true;
 
-        console.log("data", data.value);
-      
-        if (data.value?.success) {
-          alert("Message envoyé !");
-        } else {
-          alert("Erreur lors de l'envoi");
+        try {
+            const encryptedPayload = encryptData(form, secret);
+
+            const { data, error } = await useFetch("/api/rdv-request", {
+                method: "POST",
+                body: {
+                    payload: encryptedPayload,
+                },
+            });
+
+            if (error.value) {
+                alert("Erreur lors de l'envoi");
+                return;
+            }
+
+            if (data.value?.success) {
+                message.success("Succès ! Votre opération a été traitée !");
+            } else {
+                alert("Erreur lors de l'envoi");
+            }
+
+        } catch (err) {
+            console.error(err);
+            alert("Erreur serveur");
+        } finally {
+            launchRequest.value = false;
         }
-      };
+    }
+
 
 
     return {
         form,
         isOpen,
+        launchRequest,
         onSubmit,
         toggleMenu,
         closeMenu,

@@ -13,9 +13,13 @@ export default defineNuxtConfig({
     '@ant-design-vue/nuxt'
   ],
   runtimeConfig: {
+    resendApiKey: process.env.RESEND_KEY,
+    email: process.env.EMAIL_RECEIVE,
+    cryptoSecrect: process.env.CRYPTO_SECRET,
+    public: {
       resendApiKey: process.env.RESEND_KEY,
       email: process.env.EMAIL_RECEIVE,
-    public: {
+      cryptoSecrect: process.env.CRYPTO_SECRET
     },
   },
   i18n: {

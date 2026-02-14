@@ -1,5 +1,5 @@
 <template>
-  <div class="container py-5">
+  <div class="container py-5">       
     <a-form
       layout="vertical"
       @finish="onSubmit(props.forms as rdvForm)"
@@ -157,6 +157,7 @@
             html-type="submit"
             size="large"
             class="w-25 mobile"
+            :loading="launchRequest"
           >
             Envoyer la demande
           </a-button>
@@ -184,7 +185,7 @@ const requiredFields = [
   "ampm",
 ];
 
-const { onSubmit, disableButton, form } = useFunctions();
+const { onSubmit, disableButton, form, launchRequest } = useFunctions();
 
 const props = defineProps({
   forms: {
